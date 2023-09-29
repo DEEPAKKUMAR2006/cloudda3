@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Binary Palindrome Checker</h1>
+    <label for="numberInput">Enter Integer:</label>
+    <input type="number" id="numberInput" placeholder="Enter an integer">
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPalindrome() {
+            const numberInput = parseInt(document.getElementById('numberInput').value);
+            const binaryRepresentation = numberInput.toString(2);
+            const reversedBinary = binaryRepresentation.split('').reverse().join('');
+
+            const resultElement = document.getElementById('result');
+            if (binaryRepresentation === reversedBinary) {
+                resultElement.textContent = 'The binary representation is a Palindrome';
+            } else {
+                resultElement.textContent = 'The binary representation is NOT a Palindrome';
+            }
+        }
+    </script>
+</body>
+</html>
